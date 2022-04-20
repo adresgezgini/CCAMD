@@ -11,14 +11,13 @@ The corresponding work presents a practical solution to the problem of call cent
 ## Citation
 
     @article{OzanIheme20222,
-      title={A Novel Semi-supervised Framework 
-for Call Center Agent Malpractice Detection via Neural Feature Learning},
+      title={A Novel Semi-supervised Framework for Call Center Agent Malpractice Detection via Neural Feature Learning},
       author={Ozan, Şükrü and Iheme, Leonardo O.},
       journal={Expert Systems with Applications},
       volume={378},
       pages={686--707},
       year={2022},
-      publisher={}
+      publisher={Elsevier}
     }
 
 
