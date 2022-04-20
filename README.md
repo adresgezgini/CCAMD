@@ -1,4 +1,4 @@
-# [Call Center Agent Malpractice Detection (CCAMD)]
+# Call Center Agent Malpractice Detection (CCAMD)
 
 This repo contains supplementary material for our manuscript called *A Novel Semi-supervised Framework 
 for Call Center Agent Malpractice Detection via Neural Feature Learning* to be published in Expert Systems 
