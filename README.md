@@ -4,6 +4,24 @@ This repo contains supplementary material for our manuscript called *A Novel Sem
 for Call Center Agent Malpractice Detection via Neural Feature Learning* to be published in Expert Systems 
 with Applications Journal.
 
+## Abstract
+
+The corresponding work presents a practical solution to the problem of call center agent malpractice. A semi-supervised framework comprising of non-linear power transformation, neural feature learning with  k-means  and agglomerative clustering is outlined. We put these building blocks together and tune the parameters so that the best performance was obtained. The data used in the experiments is obtained from our in-house call center. It is made up of recorded agent-customer conversations which have been annotated using a convolutional neural network (CNN) based segmenter. The methods provided a means of tuning the parameters of the neural network to achieve a desirable result. We show that, using our proposed framework, it is possible to significantly reduce the malpractice classification error of a  clustering model (either k-means or agglomerative). By presenting the amount of silence per call as a key performance indicator, we show that the proposed system has increased the efficiency of quality control managers thus enhancing agents performance at our call center since deployment.
+
+## Citation
+
+    @article{OzanIheme20222,
+      title={A Novel Semi-supervised Framework 
+for Call Center Agent Malpractice Detection via Neural Feature Learning},
+      author={Ozan, Şükrü and Iheme, Leonardo O.},
+      journal={Expert Systems with Applications},
+      volume={378},
+      pages={686--707},
+      year={2022},
+      publisher={}
+    }
+
+
 ## File List
 1.  [training.csv](data/training.csv) under **data** folder is the training data we used for training our 
 proposed frameworks. Each row represents one training sample. The file comprises of 5 columns named record, speech, silence, noise, and music, respectively. These columns hold the corresponding percentage values which were calculated by preprocessing 
