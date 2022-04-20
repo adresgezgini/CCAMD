@@ -5,11 +5,11 @@ for Call Center Agent Malpractice Detection via Neural Feature Learning* to be p
 with Applications Journal.
 
 ## File List
-1.  [data/training.csv](training.csv) under **data** folder is the training data we used for training our 
+1.  [training.csv](data/training.csv) under **data** folder is the training data we used for training our 
 proposed frameworks. Each row represents one training sample. The file comprises of 5 columns named record, speech, silence, noise, and music, respectively. 
-- **noise :**
-- **noise :**
-2.  [data/validation.csv](validation.csv) under **data** folder is the training data we used for training our 
+    - **noise :**
+    - **noise :**
+2.  [validation.csv](data/validation.csv) under **data** folder is the training data we used for training our 
 proposed frameworks.
 3. [20220411_141801.gsm](20220411_141801.gsm) is a hypothetical call center recording between two people,
 one acting as a customer and the other as a customer representative.
