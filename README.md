@@ -50,4 +50,5 @@ call center recordings using  [inaSpeechSegmenter](https://github.com/ina-foss/i
 one acting as a customer and the other as a customer representative.
 4. [extract_features.py](extract_features.py) this file generates labels for an input audio file by
 using [inaSpeechSegmenter](https://github.com/ina-foss/inaSpeechSegmenter).
-
+5. [k_means.py](k_means.py)
+6. [applomerative.py](agglomerative.py)
