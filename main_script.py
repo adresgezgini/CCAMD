@@ -42,33 +42,32 @@ scaler_pt_rbm_aglo = Pipeline([('scaler', scaler_pt), ('rbm', rbm), ('aglo', agl
 pipelines = {
     'aglo': {
         'plain': aglo,
-        'transforms': {
-            'zt': scaler_zt_aglo,
-            'zt_rbm': scaler_zt_rbm_aglo,
-            'pt': scaler_pt_aglo,
-            'pt_rbm': scaler_pt_rbm_aglo
-        }
+        'zt': scaler_zt_aglo,
+        'zt_rbm': scaler_zt_rbm_aglo,
+        'pt': scaler_pt_aglo,
+        'pt_rbm': scaler_pt_rbm_aglo
     },
     'kmeans': {
         'plain': kmeans,
-        'transforms': {
-            'zt': scaler_zt_kmeans,
-            'zt_rbm': scaler_zt_rbm_kmeans,
-            'pt': scaler_pt_kmeans,
-            'pt_rbm': scaler_pt_rbm_kmeans
-        }
+        'zt': scaler_zt_kmeans,
+        'zt_rbm': scaler_zt_rbm_kmeans,
+        'pt': scaler_pt_kmeans,
+        'pt_rbm': scaler_pt_rbm_kmeans
     }
 }
 # fit the data to the models
 for key, value in pipelines.items():
-    print(f'fitting the {key} models')
+    print(f'fitting the {key} models', '', sep='\n')
     for key_, value_ in value.items():
         if 'rbm' in key_:
             pass
         else:
             value_.fit(X_train)
             # add the results to the dfs
-            train_data[f'{key}_{key_}'] = value_[key].labels_
+            if key_ == 'plain':
+                train_data[f'{key}_{key_}'] = value_.labels_
+            else:
+                train_data[f'{key}_{key_}'] = value_[key].labels_
             # predict the labels of the test set and add the results to the test df
             test_data[f'{key}_{key_}'] = value_.fit_predict(X_test)
 
@@ -92,8 +91,8 @@ results_rbm = {}
 for key, value in pipelines.items():
     for g in ParameterGrid(param_grid):
 
-        model_zt = value['transforms']['zt_rbm']
-        model_pt = value['transforms']['pt_rbm']
+        model_zt = value['zt_rbm']
+        model_pt = value['pt_rbm']
 
         model_zt.set_params(**g)
         model_pt.set_params(**g)
@@ -134,22 +133,24 @@ for key, value in pipelines.items():
             best_F1_zt = F1_zt
             best_grid = g
 
-            print(f'Best Precision: {best_recalls_zt.round(3)}',
+            print(f'{key}_zt')
+            print(f'Best Recall: {best_recalls_zt.round(3)}',
                   f'Best F1: {best_F1_zt.round(3)}',
                   json.dumps(best_grid, indent=1), sep='\n')
-            print('Confusion Matrices', f'{key}_zt:',
-                  f'{sklearn.metrics.confusion_matrix(y, y_zt)}', sep='\n')
+            # print('Confusion Matrix',
+            #       f'{sklearn.metrics.confusion_matrix(y, y_zt)}', sep='\n')
 
         if recall_pt > best_recalls_pt:
             best_recalls_pt = recall_pt
             best_F1_pt = F1_pt
             best_grid = g
 
-            print(f'Best Precision: {best_recalls_zt.round(3)}',
+            print(f'{key}_pt')
+            print(f'Best Recall: {best_recalls_zt.round(3)}',
                   f'Best F1: {best_F1_pt.round(3)}',
                   json.dumps(best_grid, indent=1), sep='\n')
-            print('Confusion Matrices', f'{key}_pt:',
-                  f'{sklearn.metrics.confusion_matrix(y, y_pt)}', sep='\n')
+            # print('Confusion Matrices', f'{key}_pt:',
+            #       f'{sklearn.metrics.confusion_matrix(y, y_pt)}', sep='\n')
             print('------------------------------------------', '', sep='\n')
 
     # mean f1 and 95% CI
