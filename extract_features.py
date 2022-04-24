@@ -54,7 +54,7 @@ def segment_audio(media_file_path):
     return call_stats_, df_segments_
 
 
-if __name__ == 'main':
+if __name__ == "__main__":
     call_stats, df_call_segments = segment_audio("20160102_102856.gsm")
     print(call_stats)
     print(df_call_segments)
