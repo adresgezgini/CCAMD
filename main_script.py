@@ -60,7 +60,6 @@ pipelines = {
     }
 }
 # fit the data to the models
-results = {}
 for key, value in pipelines.items():
     print(f'fitting the {key} models')
     for key_, value_ in value.items():
@@ -70,6 +69,7 @@ for key, value in pipelines.items():
             value_.fit(X_train)
             # add the results to the dfs
             train_data[f'{key}_{key_}'] = value_[key].labels_
+            # predict the labels of the test set and add the results to the test df
             test_data[f'{key}_{key_}'] = value_.fit_predict(X_test)
 
 param_grid = {
