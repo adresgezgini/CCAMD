@@ -19,11 +19,11 @@ We segmented numerous call center recordings by using this tool. Our data compri
     @article{OzanIheme:2022,
       title={A Novel Semi-supervised Framework for Call Center Agent Malpractice Detection via Neural Feature Learning},
       author={Ozan, Şükrü and Iheme, Leonardo O.},
-      journal={Expert Systems with Applications},
-      volume={378},
-      pages={686--707},
-      year={2022},
-      publisher={Elsevier}
+      journal={*****************},
+      volume={**********},
+      pages={************},
+      year={*********},
+      publisher={************}
     }
 
 
